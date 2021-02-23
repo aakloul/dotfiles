@@ -15,8 +15,8 @@ else
     colorscheme gruvbox
 endif
 
-let g:python3_host_prog = '~/.pyenv/versions/3.9.1/envs/neovim3/bin/python3.9'
-let g:python_host_prog =  '~/.pyenv/versions/2.7.18/envs/neovim2/bin/python2.7'
+let g:python3_host_prog = '~/.pyenv/versions/neovim3/bin/python'
+let g:python_host_prog =  '~/.pyenv/versions/neovim2/bin/python'
 
 " Plugin Configuration
 if using_neovim
