@@ -1,10 +1,10 @@
 
 let g:startify_custom_header = [
-        \ '        _   ___    ________          __   ',
-        \ '       / | / / |  / / ____/___  ____/ /__ ',
-        \ '      /  |/ /| | / / /   / __ \/ __  / _ \',
-        \ '     / /|  / | |/ / /___/ /_/ / /_/ /  __/',
-        \ '    /_/ |_/  |___/\____/\____/\__,_/\___/ ',
+            \'    __  ___              ____             __          ',
+            \'   /  |/  /___  _  __   / __ \____  _____/ /_______   ',
+            \'  / /|_/ / __ \| |/_/  / /_/ / __ \/ ___/ //_/ ___/   ',
+            \' / /  / / /_/ />  <   / _, _/ /_/ / /__/ ,< (__  )    ',
+            \'/_/  /_/\____/_/|_|  /_/ |_|\____/\___/_/|_/____/     ',
         \]
 
 let g:startify_session_dir = '~/.config/nvim/session'
@@ -31,7 +31,7 @@ function! StartifyEntryFormat()
     endfunction
 
 let g:startify_bookmarks = [
-            \ { 'c': '~/.config/i3/config' },
+            \ { 'd': '~/dotfiles' },
             \ { 'i': '~/.config/nvim/init.vim' },
             \ { 'z': '~/.zshrc' },
             \ { 'h': '~/blogs/hello-friend-ng' },
