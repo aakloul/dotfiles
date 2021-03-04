@@ -68,7 +68,11 @@ plugins=(
   git
   osx
   chucknorris # ¯\_(ツ)_/¯
+<<<<<<< HEAD
   vi-mode
+=======
+  zsh-vim-mode
+>>>>>>> 03e1fd8 (pyenv)
   fzf
 )
 
@@ -158,3 +162,8 @@ function alaFontSize() {
     cat ~/.config/alacritty/alacritty.yml | jsin --yaml --yamlout --whole "(l.font.size=Number(\"$1\")) && l; " > /tmp/alacritty.yml.tmp
     mv /tmp/alacritty.yml.tmp $HOME/.config/alacritty/alacritty.yml
 }
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+export PATH="/usr/local/sbin:$PATH"
