@@ -91,14 +91,15 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  # Use nvim as the default editor
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -117,7 +118,7 @@ PROMPT="\$(vi_mode_prompt_info) $PROMPT"
 # reduce delay from 0.4 to 0.1 seconds when typing <ESC>
 export KEYTIMEOUT=1
 
-export ANDROID_SDK=/Users/adelakloul/Library/Android/sdk
+export ANDROID_SDK=/Users/${USER}/Library/Android/sdk
 export PATH=$ANDROID_SDK/platform-tools:$PATH
 
 export PYENV_ROOT="$HOME/.pyenv"
@@ -126,9 +127,6 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 export FZF_BASE=/usr/local/opt/fzf/
-
-# Use nvim as the default editor
-export EDITOR=nvim
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
