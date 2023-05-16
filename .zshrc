@@ -1,34 +1,47 @@
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# This is a workaround for having a system node and NVM node
-#PATH="/usr/local/bin:$(getconf PATH)"
-
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/${USER}/.oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+#ZSH_THEME="robbyrussell"
+#ZSH_THEME="spaceship"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="spaceship"
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
-# Disable bi-weekly auto-update checks.
-#DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# How often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# Uncomment the following line to change how often to auto-update (in days).
+# zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
+# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -40,6 +53,9 @@ ZSH_THEME="spaceship"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -58,25 +74,12 @@ ZSH_THEME="spaceship"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  z
-  git
-  osx
-  chucknorris # ¯\_(ツ)_/¯
-<<<<<<< HEAD
-  vi-mode
-=======
-  zsh-vim-mode
->>>>>>> 03e1fd8 (pyenv)
-  fzf
-)
-
-VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+plugins=(git macos fzf tmux vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -94,9 +97,6 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-# ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -104,66 +104,31 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Load aliases
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f ~/.aliases ] && source ~/.aliases
-
-# vi mode
-bindkey -v
-# ctrl-r starts searching history backward
-bindkey '^r' history-incremental-search-backward
-
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+MODE_INDICATOR="%F{yellow}N%f"
+INSERT_MODE_INDICATOR="%F{green}I%f"
+PROMPT="\$(vi_mode_prompt_info) $PROMPT"
+#RPROMPT="\$(vi_mode_prompt_info)$RPROMPT"
 # reduce delay from 0.4 to 0.1 seconds when typing <ESC>
 export KEYTIMEOUT=1
 
 export ANDROID_SDK=/Users/adelakloul/Library/Android/sdk
 export PATH=$ANDROID_SDK/platform-tools:$PATH
 
-emojis=("👾" "🌐" "🎲" "🌍" "🐉" "🌵")
-EMOJI=${emojis[$RANDOM % ${#emojis[@]} ]}
-#PS1="$EMOJI >"
-
-# fortune | cowsay -f tux
-
-export PATH="$HOME/.gem/ruby/X.X.0/bin:$PATH"
-
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
-  source "${VIRTUAL_ENV}/bin/activate"
-fi
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Add cargo to the PATH
-#source $HOME/.cargo/env
+export FZF_BASE=/usr/local/opt/fzf/
 
 # Use nvim as the default editor
 export EDITOR=nvim
 
-#fortune | cowsay
-
-#ctags -R --exclude=.git --exclude=log * &
-
-# To use run: alaOpacity 0.8
-function alaOpacity() {
-    cat ~/.config/alacritty/alacritty.yml | jsin --yaml --yamlout --whole "(l.background_opacity=Number(\"$1\")) && l; " > /tmp/alacritty.yml.tmp
-    mv /tmp/alacritty.yml.tmp $HOME/.config/alacritty/alacritty.yml
-}
-
-# To use run: alaFontSize 12
-function alaFontSize() {
-    cat ~/.config/alacritty/alacritty.yml | jsin --yaml --yamlout --whole "(l.font.size=Number(\"$1\")) && l; " > /tmp/alacritty.yml.tmp
-    mv /tmp/alacritty.yml.tmp $HOME/.config/alacritty/alacritty.yml
-}
-
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-export PATH="/usr/local/sbin:$PATH"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
