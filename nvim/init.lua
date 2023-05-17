@@ -1,3 +1,4 @@
+vim.g.python3_host_prog = '~/.pyenv/versions/neovim3/bin/python'
 require('plugins')
 require('file-explorer')
 require('options')
