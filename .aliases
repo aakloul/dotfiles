@@ -61,7 +61,7 @@ alias gitsync="git branch -r | grep -v '\->' | while read remote; do git branch 
 alias gpom="git pull origin master"
 
 # Recursively delete `.DS_Store` files
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete ; defaults write com.apple.desktopservices DSDontWriteNetworkStores true "
 
 # Empty the Trash on all mounted volumes and the main HDD.
 # Also, clear Apple’s System Logs to improve shell startup speed.
@@ -77,7 +77,7 @@ alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && 
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 # http://xkcd.com/530/
-alias stfu="osascript -e 'set volume output muted true'"
+alias mute="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume output volume 100'"
 
 # Lock the screen (when going AFK)
@@ -89,6 +89,7 @@ alias reload="exec ${SHELL} -l"
 # Kill all the tabs in Chrome to free up memory
 # [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
 alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
+alias bravekill="ps ux | grep 'Brave Browser Helper (Renderer) --type=renderer' | grep -v extension-process| tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 
 function msfconsole {
     echo "Shared storage at ${HOME}/.msf"
@@ -109,3 +110,10 @@ alias msfvenom='echo remember to save to -o /data/something ; docker run --rm -i
 alias htb='docker-compose -f /Users/adelakloul/Documents/htb/pwn/docker-compose.yml up -d'
 
 alias wpscan='docker run -it --rm wpscanteam/wpscan'
+
+alias sshpico='ssh nQUsPw3MuKATVGTR9lUU@2019shell1.picoctf.com -i ~/.ssh/id_ed25519_picoctf2019'
+
+#alias rustscan='docker run -it --rm --name rustscan rustscan/rustscan:1.10.0'
+alias rustscan='docker run -it --rm --name rustscan rustscan/rustscan:latest'
+alias crackmapexec='docker run -it --rm --name crackmapexec byt3bl33d3r/crackmapexec:latest'
+

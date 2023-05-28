@@ -83,6 +83,12 @@ plugins=(git macos fzf tmux vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
+export FZF_BASE=/usr/local/opt/fzf/
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -91,14 +97,15 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  # Use nvim as the default editor
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -120,18 +127,18 @@ PROMPT="\$(vi_mode_prompt_info) $PROMPT"
 # reduce delay from 0.4 to 0.1 seconds when typing <ESC>
 export KEYTIMEOUT=1
 
-export ANDROID_SDK=/Users/adelakloul/Library/Android/sdk
-export PATH=$ANDROID_SDK/platform-tools:$PATH
-
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-export FZF_BASE=/usr/local/opt/fzf/
+export GOPATH=$HOME/go-workspace
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
 
-# Use nvim as the default editor
-export EDITOR=nvim
+export ANDROID_SDK=/Users/${USER}/Library/Android/sdk
+export PATH=$ANDROID_SDK/platform-tools:$PATH
 
 # To use run: alaOpacity 0.8
 function alaOpacity() {
@@ -144,3 +151,15 @@ function alaFontSize() {
     cat ~/.config/alacritty/alacritty.yml | jsin --yaml --yamlout --whole "(l.font.size=Number(\"$1\")) && l; " > /tmp/alacritty.yml.tmp
     mv /tmp/alacritty.yml.tmp $HOME/.config/alacritty/alacritty.yml
 }
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+#export SDKMAN_DIR="$HOME/.sdkman"
+#[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+#export OUTPUT_PATH=/Users/adel.akloul/DAILY_SCRIPT_OUTPUT
+#export NODE_EXTRA_CA_CERTS=~/.zscaler/Zscaler_Root_CA.pem
+#export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_292)
