@@ -109,6 +109,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 MODE_INDICATOR="%F{yellow}N%f"
 INSERT_MODE_INDICATOR="%F{green}I%f"
@@ -130,5 +133,14 @@ export FZF_BASE=/usr/local/opt/fzf/
 # Use nvim as the default editor
 export EDITOR=nvim
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# To use run: alaOpacity 0.8
+function alaOpacity() {
+    cat ~/.config/alacritty/alacritty.yml | jsin --yaml --yamlout --whole "(l.background_opacity=Number(\"$1\")) && l; " > /tmp/alacritty.yml.tmp
+    mv /tmp/alacritty.yml.tmp $HOME/.config/alacritty/alacritty.yml
+}
+
+# To use run: alaFontSize 12
+function alaFontSize() {
+    cat ~/.config/alacritty/alacritty.yml | jsin --yaml --yamlout --whole "(l.font.size=Number(\"$1\")) && l; " > /tmp/alacritty.yml.tmp
+    mv /tmp/alacritty.yml.tmp $HOME/.config/alacritty/alacritty.yml
+}
