@@ -71,6 +71,11 @@ return require('packer').startup(function(use)
 	use 'lukas-reineke/indent-blankline.nvim'
 -- Floatterm to run lazygit
 	use 'voldikss/vim-floaterm'
+-- git
+    use {
+        'lewis6991/gitsigns.nvim',
+        -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+    }
 
 	if packer_bootstrap then
 		require('packer').sync()
