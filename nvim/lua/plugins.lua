@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
 	use 'mfussenegger/nvim-dap'
 	use { 'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'} }
 	use 'jay-babu/mason-nvim-dap.nvim'
+    use 'mfussenegger/nvim-dap-python'
 -- TreeSitter
 -- recommended packer way of installing it is to run this function, copied from documentation
 	use {

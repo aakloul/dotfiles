@@ -53,4 +53,16 @@ dap.configurations.go = {
     } 
 }
 
+require('dap-python').setup('~/.pyenv/versions/debugpy/bin/python')
+dap.configurations.python = {
+    {
+        type = 'python',
+        request = 'launch',
+        name = 'Launch file',
+        program = "${file}",
+        pythonPath = function ()
+            return vim.fn.expand('~/.pyenv/versions/debugpy/bin/python')
+        end,
+    },
+}
 
