@@ -60,9 +60,5 @@ dap.configurations.python = {
         request = 'launch',
         name = 'Launch file',
         program = "${file}",
-        pythonPath = function ()
-            return vim.fn.expand('~/.pyenv/versions/debugpy/bin/python')
-        end,
     },
 }
-
