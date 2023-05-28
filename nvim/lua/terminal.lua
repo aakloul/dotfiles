@@ -82,3 +82,9 @@ function _PYTHON_TOGGLE()
   python_interactive:toggle()
 end
 vim.api.nvim_set_keymap("n", "<leader>p", "<cmd>lua _PYTHON_TOGGLE()<CR>", {noremap = true, silent = true})
+
+local ncdu = Terminal:new({ cmd = "ncdu", hidden = true })
+function _NCDU_TOGGLE()
+  ncdu:toggle()
+end
+vim.api.nvim_set_keymap("n", "<leader>nc", "<cmd>lua _NCDU_TOGGLE()<CR>", {noremap = true, silent = true})
