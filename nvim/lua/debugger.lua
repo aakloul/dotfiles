@@ -1,7 +1,26 @@
 -- fetch the dap and dap-ui plugins
 local dap = require('dap')
 local dapui = require('dapui')
-dapui.setup()
+dapui.setup({
+    layouts = { 
+        { 
+            elements = { 
+                { id = "scopes",        size = 0.25 }, 
+                { id = "breakpoints",   size = 0.25 }, 
+                { id = "stacks",        size = 0.25 }, 
+                { id = "watches",       size = 0.25 } 
+            },
+            position = "right",         size = 40
+        }, 
+        { 
+            elements = { 
+                { id = "repl",          size = 0.5 }, 
+                { id = "console",       size = 0.5 } 
+            },
+            position = "bottom",        size = 10
+        } 
+    },
+})
 
 require("mason-nvim-dap").setup({
     ensure_installed = { "pyright", "delve", "golps" }
@@ -62,3 +81,16 @@ dap.configurations.python = {
         program = "${file}",
     },
 }
+
+require("neotest").setup({
+  adapters = {
+    require("neotest-python")({
+      dap = {
+        justMyCode = false,
+        console = "integratedTerminal",
+      },
+      args = { "--log-level", "DEBUG", "--quiet" },
+      runner = "pytest",
+    })
+  }
+})

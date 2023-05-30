@@ -14,7 +14,7 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
 -- Configurations will go here soon
 	use 'wbthomason/packer.nvim'
-	use 'williamboman/mason.nvim'   
+	use 'williamboman/mason.nvim'
 	use 'williamboman/mason-lspconfig.nvim'
 	use 'neovim/nvim-lspconfig'
 -- Dracula theme for styling
@@ -37,6 +37,8 @@ return require('packer').startup(function(use)
 	use { 'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'} }
 	use 'jay-babu/mason-nvim-dap.nvim'
     use 'mfussenegger/nvim-dap-python'
+    use "nvim-neotest/neotest"
+    use "nvim-neotest/neotest-python"
 -- TreeSitter
 -- recommended packer way of installing it is to run this function, copied from documentation
 	use {
@@ -80,6 +82,19 @@ return require('packer').startup(function(use)
     use {"akinsho/toggleterm.nvim", tag = '*', config = function()
         require("toggleterm").setup()
     end}
+-- Lua
+    use {
+      "folke/which-key.nvim",
+      config = function()
+        vim.o.timeout = true
+        vim.o.timeoutlen = 300
+        require("which-key").setup {
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        }
+      end
+    }
 
 	if packer_bootstrap then
 		require('packer').sync()
