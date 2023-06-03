@@ -14,21 +14,44 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
 -- Configurations will go here soon
 	use 'wbthomason/packer.nvim'
-	use 'williamboman/mason.nvim'
-	use 'williamboman/mason-lspconfig.nvim'
-	use 'neovim/nvim-lspconfig'
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v2.x',
+        requires = {
+            -- LSP Support
+            {'neovim/nvim-lspconfig'},             -- Required
+            {                                      -- Optional
+                'williamboman/mason.nvim',
+                run = function()
+                    pcall(vim.cmd, 'MasonUpdate')
+                end,
+            },
+            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},     -- Required
+            {'hrsh7th/cmp-nvim-lsp'}, -- Required
+            {'L3MON4D3/LuaSnip'},     -- Required
+        }
+    }
+
+	--use 'williamboman/mason.nvim'
+	--use 'williamboman/mason-lspconfig.nvim'
+	--use 'neovim/nvim-lspconfig'
+-- Lint / Formatters
+    use 'jay-babu/mason-null-ls.nvim'
+    use 'jose-elias-alvarez/null-ls.nvim'
 -- Dracula theme for styling
 	use 'Mofiqul/dracula.nvim'
 -- Hrsh7th Code Completion Suite
-	use 'hrsh7th/nvim-cmp' 
-	use 'hrsh7th/cmp-nvim-lsp'
+	--use 'hrsh7th/nvim-cmp' 
+	--use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-nvim-lua'
 	use 'hrsh7th/cmp-nvim-lsp-signature-help'
-	use 'hrsh7th/cmp-vsnip'                             
 	--use 'hrsh7th/cmp-vsnip'                             
 	use 'hrsh7th/cmp-path'                              
 	use 'hrsh7th/cmp-buffer'                            
-	use 'hrsh7th/vim-vsnip'
+	--use 'hrsh7th/vim-vsnip'
  -- File explorer tree
 	use 'nvim-tree/nvim-web-devicons' -- optional, for file icons
 	use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons'}
