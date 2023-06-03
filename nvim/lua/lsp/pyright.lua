@@ -36,7 +36,7 @@ local function get_python_path(workspace)
     return exepath("python") or exepath("python3") or "python"
 end
 
-print(get_python_path(root_dir))
+--print(get_python_path(root_dir))
 
 lsp.use('pyright', {
     single_file_support = true,

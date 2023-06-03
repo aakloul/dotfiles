@@ -1,6 +1,6 @@
 vim.g.python3_host_prog = "~/.pyenv/versions/neovim3/bin/python"
 require("plugins")
-require("linter")
+require("linter") -- must be before lsp
 require("file-explorer")
 require("options")
 require("styling")
