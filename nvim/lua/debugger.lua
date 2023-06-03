@@ -1,30 +1,32 @@
 -- fetch the dap and dap-ui plugins
-local dap = require('dap')
-local dapui = require('dapui')
+local dap = require("dap")
+local dapui = require("dapui")
 dapui.setup({
-    layouts = { 
-        { 
-            elements = { 
-                { id = "scopes",        size = 0.25 }, 
-                { id = "breakpoints",   size = 0.25 }, 
-                { id = "stacks",        size = 0.25 }, 
-                { id = "watches",       size = 0.25 } 
+    layouts = {
+        {
+            elements = {
+                { id = "scopes",      size = 0.25 },
+                { id = "breakpoints", size = 0.25 },
+                { id = "stacks",      size = 0.25 },
+                { id = "watches",     size = 0.25 },
             },
-            position = "right",         size = 40
-        }, 
-        { 
-            elements = { 
-                { id = "repl",          size = 0.5 }, 
-                { id = "console",       size = 0.5 } 
+            position = "right",
+            size = 40,
+        },
+        {
+            elements = {
+                { id = "repl",    size = 0.5 },
+                { id = "console", size = 0.5 },
             },
-            position = "bottom",        size = 10
-        } 
+            position = "bottom",
+            size = 10,
+        },
     },
 })
 
-require("mason-nvim-dap").setup({
-    ensure_installed = { "pyright", "delve", "golps" }
-})
+--require("mason-nvim-dap").setup({
+--	ensure_installed = { "pyright", "delve", "gopls" },
+--})
 
 -- dap fires events, we can listen on them to open UI on certain events
 dap.listeners.after.event_initialized["dapui_config"] = function()
@@ -39,12 +41,12 @@ end
 
 -- Add adapter to delve
 dap.adapters.delve = {
-    type = 'server',
-    port = '${port}',
+    type = "server",
+    port = "${port}",
     executable = {
-        command = 'dlv',
-        args = {'dap', '-l', '127.0.0.1:${port}'},
-    }
+        command = "dlv",
+        args = { "dap", "-l", "127.0.0.1:${port}" },
+    },
 }
 
 -- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
@@ -53,44 +55,51 @@ dap.configurations.go = {
         type = "delve",
         name = "Debug",
         request = "launch",
-        program = "${file}"
+        program = "${file}",
     },
     {
         type = "delve",
         name = "Debug test", -- configuration for debugging test files
         request = "launch",
         mode = "test",
-        program = "${file}"
+        program = "${file}",
     },
-    -- works with go.mod packages and sub packages 
+    -- works with go.mod packages and sub packages
     {
         type = "delve",
         name = "Debug test (go.mod)",
         request = "launch",
         mode = "test",
-        program = "./${relativeFileDirname}"
-    } 
+        program = "./${relativeFileDirname}",
+    },
 }
 
 require('dap-python').setup('~/.pyenv/versions/debugpy/bin/python')
+--dap.adapters.python = {
+--    type = "executable",
+--    command = vim.fn.stdpath("data") .. "/mason/bin/debugpy-adapter",
+--    -- command = install_path,
+--    -- args = { "-m", "debugpy.adapter" },
+--}
+
 dap.configurations.python = {
     {
-        type = 'python',
-        request = 'launch',
-        name = 'Launch file',
+        type = "python",
+        request = "launch",
+        name = "Launch file",
         program = "${file}",
     },
 }
 
 require("neotest").setup({
-  adapters = {
-    require("neotest-python")({
-      dap = {
-        justMyCode = false,
-        console = "integratedTerminal",
-      },
-      args = { "--log-level", "DEBUG", "--quiet" },
-      runner = "pytest",
-    })
-  }
+    adapters = {
+        require("neotest-python")({
+            dap = {
+                justMyCode = false,
+                console = "integratedTerminal",
+            },
+            args = { "--log-level", "DEBUG", "--quiet" },
+            runner = "pytest",
+        }),
+    },
 })
