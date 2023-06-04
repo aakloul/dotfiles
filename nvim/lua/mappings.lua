@@ -19,8 +19,8 @@ map("n", "dl", [[:lua require'dap'.run_last()<CR>]], {})
 
 -- define common options
 local opts = {
-	noremap = true, -- non-recursive
-	silent = true, -- do not show message
+    noremap = true, -- non-recursive
+    silent = true,  -- do not show message
 }
 
 -----------------
@@ -48,3 +48,10 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
 -- Hint: start visual mode with the same area as the previous area and the same mode
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
+
+-- Barbar
+vim.keymap.set("n", "<TAB>", "<cmd>BufferNext<cr>", opts)
+vim.keymap.set("n", "<S-TAB>", "<cmd>BufferPrev<cr>", opts)
+-- Bufferline
+--vim.keymap.set("n", "<TAB>", "<cmd>BufferLineCycleNext<cr>", opts)
+--vim.keymap.set("n", "<S-TAB>", "<cmd>BufferLineCyclePrev<cr>", opts)
