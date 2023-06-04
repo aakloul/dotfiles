@@ -91,16 +91,15 @@ return require('packer').startup(function(use)
         config = function() require("nvim-autopairs").setup {} end
     }
     -- Bufferline is a "header" with all opened buffers
-    -- using packer.nvim
-    use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons',
-        -- config = function() require("bufferline").setup({}) end
-    }
+    --use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons',
+    --    -- config = function() require("bufferline").setup({}) end -- don't use if you want ot customize
+    --}
     use { 'romgrk/barbar.nvim',
         requires = {
             -- use 'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
             -- use 'lewis6991/gitsigns.nvim'      -- OPTIONAL: for git status
         },
-        -- config = function() require("barbar").setup({}) end
+        -- config = function() require("barbar").setup({}) end -- don't use if you want to customize
     }
     -- LSP Saga
     use({

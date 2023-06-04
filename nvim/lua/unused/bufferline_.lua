@@ -36,5 +36,3 @@ bufferline.setup({
         end,
     },
 })
-fwjfn
---print(vim.inspect(require("bufferline").conf))

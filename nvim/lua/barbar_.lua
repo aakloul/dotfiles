@@ -6,7 +6,7 @@ require 'barbar'.setup {
     --       The defaults are suitable for most people.
 
     -- Enable/disable animations
-    animation = true,
+    animation = false,
 
     -- Enable/disable auto-hiding the tab bar when there is a single buffer
     auto_hide = false,
@@ -44,7 +44,7 @@ require 'barbar'.setup {
         -- Valid options to display the buffer index and -number are `true`, 'superscript' and 'subscript'
         buffer_index = false,
         buffer_number = false,
-        button = '',
+        button = '✖',
         -- Enables / disables diagnostic symbols
         diagnostics = {
             [vim.diagnostic.severity.ERROR] = { enabled = true, icon = '' },
@@ -104,7 +104,7 @@ require 'barbar'.setup {
     -- assigned based on their name. Otherwise or in case all letters are
     -- already assigned, the behavior is to assign letters in order of
     -- usability (see order below)
-    semantic_letters = true,
+    semantic_letters = false,
 
     -- Set the filetypes which barbar will offset itself for
     sidebar_filetypes = {
