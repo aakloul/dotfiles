@@ -128,24 +128,21 @@ return require('packer').startup(function(use)
     use { "akinsho/toggleterm.nvim", tag = '*', config = function()
         require("toggleterm").setup()
     end }
-    -- Lua
-    use {
-        "folke/which-key.nvim",
-        config = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-            require("which-key").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
-        end
-    }
     use {
         'phaazon/hop.nvim',
         branch = 'v2', -- optional but strongly recommended
         --config = function() require 'hop'.setup { keys = 'asdfjkl;ghnmxcvbziowerutyqp' } end
     }
+    use {
+        "folke/which-key.nvim",
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+            --require("which-key").setup { }
+        end
+    }
+    use { "folke/trouble.nvim", requires = { "nvim-tree/nvim-web-devicons" } }
+    use { "folke/todo-comments.nvim", requires = { "nvim-lua/plenary.nvim" } }
 
     if packer_bootstrap then
         require('packer').sync()
