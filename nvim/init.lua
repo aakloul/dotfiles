@@ -18,3 +18,4 @@ require("styling") --must be before buffer
 --require("bufferline_")  -- must be after styling
 require("barbar_")
 require("hoverdoc")
+require("hop_")
