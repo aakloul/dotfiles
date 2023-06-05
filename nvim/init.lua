@@ -23,6 +23,7 @@ require("hop_")
 -- TODO: archive bufferline since we have replaced it with barbar
 require("todo-comments_")
 require("colorizer")
+require('Comment').setup()
 
 -- Options to add `gf` functionality inside `.lua` files.
 _G.vim.opt_local.include = [[\v<((do|load)file|require)[^''"]*[''"]\zs[^''"]+]]

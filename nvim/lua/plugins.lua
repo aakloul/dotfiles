@@ -161,12 +161,9 @@ return require("packer").startup(function(use)
     --    -- setup = function() vim.g.Hexokinase_highlighters = { 'backgroundfull' } end
     --} -- golang installation is required
 
-    use({
-        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-        config = function()
-            require("lsp_lines").setup()
-        end,
-    })
+    use { "https://git.sr.ht/~whynothugo/lsp_lines.nvim", config = function() require("lsp_lines").setup() end, }
+
+    use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
 
     if packer_bootstrap then
         require("packer").sync()
