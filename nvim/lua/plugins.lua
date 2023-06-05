@@ -32,7 +32,16 @@ return require("packer").startup(function(use)
             -- Autocompletion
             { "hrsh7th/nvim-cmp" },     -- Required
             { "hrsh7th/cmp-nvim-lsp" }, -- Required
-            { "L3MON4D3/LuaSnip" },     -- Required
+            -- Snippets compatible with lsp-zero
+            {
+                "L3MON4D3/LuaSnip",
+                run = "make install_jsregexp", -- install jsregexp (optional!:).
+                -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+                -- tag = "v<CurrentMajor>.*",
+            },                                       -- Required
+            { "rafamadriz/friendly-snippets", },     -- for VSCode snippets via LuaSnip
+            { "molleweide/LuaSnip-snippets.nvim", }, --community snippets
+            { 'saadparwaiz1/cmp_luasnip' }           -- Required by L3MON4D3/LuaSnip
         },
     })
 
@@ -72,6 +81,11 @@ return require("packer").startup(function(use)
             local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
             ts_update()
         end,
+    })
+    use({
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        -- after = "nvim-treesitter",
+        -- requires = "nvim-treesitter/nvim-treesitter",
     })
     -- Telescope used to fuzzy search files
     use({
