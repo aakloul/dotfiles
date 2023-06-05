@@ -38,12 +38,12 @@ return require("packer").startup(function(use)
                 run = "make install_jsregexp", -- install jsregexp (optional!:).
                 -- Replace <CurrentMajor> by the latest released major (first number of latest release)
                 -- tag = "v<CurrentMajor>.*",
-            },                                       -- Required
-            { "rafamadriz/friendly-snippets", },     -- for VSCode snippets via LuaSnip
-            { "molleweide/LuaSnip-snippets.nvim", }, --community snippets
-            { 'saadparwaiz1/cmp_luasnip' }           -- Required by L3MON4D3/LuaSnip
+            },                                   -- Required
+            { "rafamadriz/friendly-snippets", }, -- for VSCode snippets via LuaSnip
+            { 'saadparwaiz1/cmp_luasnip' }       -- Required by L3MON4D3/LuaSnip
         },
     })
+    use { "molleweide/LuaSnip-snippets.nvim", }         --community snippets
 
     --use 'williamboman/mason.nvim'
     --use 'williamboman/mason-lspconfig.nvim'

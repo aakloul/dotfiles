@@ -1,6 +1,33 @@
-require("luasnip.loaders.from_vscode").lazy_load()
-
 local ls = require("luasnip")
+ls.setup({
+    region_check_events = "InsertEnter",
+})
+ls.config.set_config({
+    history = true, -- keep around last snippet local to jump back
+    enable_autosnippets = true,
+})
+require("luasnip.loaders.from_vscode").lazy_load()
+-- require("luasnip.loaders.from_lua").lazy_load({
+--     paths = {
+--         "~/.config/nvim/luasnip/",
+--         --"~/.local/share/nvim/site/pack/packer/start/LuaSnip-snippets.nvim/lua/luasnip_snippets/snippets/",
+--     }
+-- })
+-- require("luasnip.loaders.from_lua").load({
+--     paths = {
+--         "~/.local/share/nvim/site/pack/packer/start/LuaSnip-snippets.nvim/lua/luasnip_snippets/snippets/",
+--     }
+-- })
+--ls.snippets = require("luasnip_snippets").load_snippets() -- BUG: won't load snippets to luasnip
+
+-- in a lua file: search lua-, then c-, then all-snippets.
+ls.filetype_extend("lua", { "c" })
+-- in a cpp file: search c-snippets, then all-snippets only (no cpp-snippets!!).
+ls.filetype_set("cpp", { "c" })
+ls.filetype_set("python", { "py" })
+ls.filetype_extend("all", { "_" })
+
+
 local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
@@ -36,6 +63,11 @@ keymap("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
 keymap("s", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
 keymap("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
 keymap("s", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
+_G.vim.keymap.set("i", "<c-l>", function()
+    if ls.choice_active() then
+        ls.change_choice()
+    end
+end, opts)
 
 -- local snip = ls.snippet
 -- local node = ls.snippet_node
