@@ -143,6 +143,10 @@ return require('packer').startup(function(use)
     }
     use { "folke/trouble.nvim", requires = { "nvim-tree/nvim-web-devicons" } }
     use { "folke/todo-comments.nvim", requires = { "nvim-lua/plenary.nvim" } }
+    use { "rrethy/vim-hexokinase", run = "make",
+        -- TODO: try to have highlighter work
+        -- setup = function() vim.g.Hexokinase_highlighters = { 'backgroundfull' } end
+    } -- golang installation is required
 
     if packer_bootstrap then
         require('packer').sync()
