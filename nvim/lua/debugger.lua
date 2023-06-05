@@ -74,7 +74,7 @@ dap.configurations.go = {
     },
 }
 
-require('dap-python').setup('~/.pyenv/versions/debugpy/bin/python')
+require("dap-python").setup("~/.pyenv/versions/debugpy/bin/python")
 --dap.adapters.python = {
 --    type = "executable",
 --    command = vim.fn.stdpath("data") .. "/mason/bin/debugpy-adapter",

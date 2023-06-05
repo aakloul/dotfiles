@@ -1,6 +1,4 @@
 local lsp = require("lsp-zero").preset({})
-local util = require("lspconfig/util")
-local path = util.path
 
 --vim.lsp.set_log_level("debug")
 

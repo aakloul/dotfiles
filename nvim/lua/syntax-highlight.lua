@@ -1,5 +1,4 @@
-require'nvim-treesitter.configs'.setup {
-
+require("nvim-treesitter.configs").setup({
     -- A list of parser names, or "all"
     ensure_installed = { "go", "lua", "python", "markdown", "markdown_inline" },
 
@@ -14,4 +13,4 @@ require'nvim-treesitter.configs'.setup {
         -- `false` will disable the whole extension
         enable = true,
     },
-}
+})

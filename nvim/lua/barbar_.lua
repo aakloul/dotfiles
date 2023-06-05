@@ -1,4 +1,4 @@
-vim.g.barbar_auto_setup = false -- disable auto-setup
+_G.vim.g.barbar_auto_setup = false -- disable auto-setup
 
 require 'barbar'.setup {
     -- WARN: do not copy everything below into your config!
@@ -47,10 +47,10 @@ require 'barbar'.setup {
         button = '✖',
         -- Enables / disables diagnostic symbols
         diagnostics = {
-            [vim.diagnostic.severity.ERROR] = { enabled = true, icon = '' },
-            [vim.diagnostic.severity.WARN] = { enabled = true, icon = '' },
-            [vim.diagnostic.severity.INFO] = { enabled = false },
-            [vim.diagnostic.severity.HINT] = { enabled = true },
+            [_G.vim.diagnostic.severity.ERROR] = { enabled = true, icon = '' },
+            [_G.vim.diagnostic.severity.WARN] = { enabled = true, icon = '' },
+            [_G.vim.diagnostic.severity.INFO] = { enabled = false },
+            [_G.vim.diagnostic.severity.HINT] = { enabled = true },
         },
         gitsigns = {
             added = { enabled = true, icon = '+' },
@@ -59,10 +59,10 @@ require 'barbar'.setup {
         },
         filetype = {
             -- Sets the icon's highlight group.
-            -- If false, will use nvim-web-devicons colors
+            -- If false, will use n_G.vim-web-devicons colors
             custom_colors = false,
 
-            -- Requires `nvim-web-devicons` if `true`
+            -- Requires `n_G.vim-web-devicons` if `true`
             enabled = true,
         },
         separator = { left = '▎', right = '' },

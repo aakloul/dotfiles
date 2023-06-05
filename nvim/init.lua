@@ -1,4 +1,4 @@
-vim.g.python3_host_prog = "~/.pyenv/versions/neovim3/bin/python"
+_G.vim.g.python3_host_prog = "~/.pyenv/versions/neovim3/bin/python"
 require("options")
 require("mappings")
 require("plugins") --must be before other plugins
@@ -21,3 +21,10 @@ require("hoverdoc")
 require("hop_")
 -- TODO: archive bufferline since we have replaced it with barbar
 require("todo-comments_")
+require("colorizer")
+
+-- Disable virtual_text since it's redundant due to lsp_lines.
+_G.vim.diagnostic.config({
+    virtual_text = false,
+})
+require("lsp_lines").setup()

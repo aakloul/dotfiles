@@ -1,4 +1,4 @@
-local keymap = vim.keymap.set
+local keymap = _G.vim.keymap.set
 
 -- Lsp finder find the symbol definition implement reference
 -- if there is no implement it will hide
@@ -90,8 +90,6 @@ keymap("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
 -- Floating terminal
 keymap({ "n", "t" }, "<A-d>", "<cmd>Lspsaga term_toggle<CR>")
 --keymap("n", "<A-d>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
-
-
 
 -- Float terminal
 -- if you want to pass some cli command into a terminal you

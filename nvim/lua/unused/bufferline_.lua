@@ -1,10 +1,10 @@
-vim.opt.termguicolors = true -- enabl 24-bit RGB color in the TUI
-bufferline = require("bufferline")
+_G.vim.opt.termguicolors = true -- enabl 24-bit RGB color in the TUI
+local bufferline = require("bufferline")
 bufferline.setup({
     --bufferline.setup({
     highlights = {
         fill = {
-            guibg = '#FF00FF',
+            guibg = '#9100ff',
         },
         indicator_selected = { sp = "#eb6f92" },
         --separator_selected = {
