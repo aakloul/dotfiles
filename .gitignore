@@ -2,3 +2,4 @@ autoload
 .netrwhist
 .DS_Store
 nvim/plugin/packer_compiled.lua
+nvim/.luarc.json
