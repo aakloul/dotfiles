@@ -7,12 +7,12 @@ ls.config.set_config({
     enable_autosnippets = true,
 })
 require("luasnip.loaders.from_vscode").lazy_load()
--- require("luasnip.loaders.from_lua").lazy_load({
---     paths = {
---         "~/.config/nvim/luasnip/",
---         --"~/.local/share/nvim/site/pack/packer/start/LuaSnip-snippets.nvim/lua/luasnip_snippets/snippets/",
---     }
--- })
+require("luasnip.loaders.from_lua").lazy_load({
+    paths = {
+        "~/.config/nvim/luasnip/",
+        --"~/.local/share/nvim/site/pack/packer/start/LuaSnip-snippets.nvim/lua/luasnip_snippets/snippets/",
+    }
+})
 -- require("luasnip.loaders.from_lua").load({
 --     paths = {
 --         "~/.local/share/nvim/site/pack/packer/start/LuaSnip-snippets.nvim/lua/luasnip_snippets/snippets/",
@@ -24,7 +24,6 @@ require("luasnip.loaders.from_vscode").lazy_load()
 ls.filetype_extend("lua", { "c" })
 -- in a cpp file: search c-snippets, then all-snippets only (no cpp-snippets!!).
 ls.filetype_set("cpp", { "c" })
-ls.filetype_set("python", { "py" })
 ls.filetype_extend("all", { "_" })
 
 

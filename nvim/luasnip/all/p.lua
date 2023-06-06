@@ -18,10 +18,10 @@ local function generic_pdoc(ilevel, args)
         local trimed = vim.trim(item)
         return trimed
     end, vim.split(
-            args[1][1],
-            ',',
-            true
-        ))
+        args[1][1],
+        ',',
+        true
+    ))
 
     if args[1][1] == '' then
         a = {}
@@ -56,41 +56,39 @@ local function pycdoc(args, ostate)
 end
 
 return {
-        s({ trig = 'cls', dscr = 'Documented Class Structure' }, {
-            t('class '),
-            i(1, { 'CLASS' }),
-            t('('),
-            i(2, { '' }),
-            t({ '):', '\t' }),
-            t({ 'def init(self,' }),
-            i(3),
-            t({ '):', '\t\t' }),
-            d(4, pycdoc, { 3 }, { user_args = 2 }),
-            f(function(args)
-                if not args[1][1] or args[1][1] == '' then
-                    return { '' }
-                end
-                local a = vim.tbl_map(function(item)
-                    local trimed = vim.trim(item)
-                    return '\t\tself.' .. trimed .. ' = ' .. trimed
-                end, vim.split(
-                        args[1][1],
-                        ',',
-                        true
-                    ))
-                return a
-            end, {
-                    3,
-                }),
-            i(0),
+    s({ trig = 'cls', dscr = 'Documented Class Structure' }, {
+        t('class '),
+        i(1, { 'CLASS' }),
+        t('('),
+        i(2, { '' }),
+        t({ '):', '\t' }),
+        t({ 'def init(self,' }),
+        i(3),
+        t({ '):', '\t\t' }),
+        d(4, pycdoc, { 3 }, { user_args = 2 }),
+        f(function(args)
+            if not args[1][1] or args[1][1] == '' then
+                return { '' }
+            end
+            local a = vim.tbl_map(function(item)
+                local trimed = vim.trim(item)
+                return '\t\tself.' .. trimed .. ' = ' .. trimed
+            end, vim.split(
+                args[1][1],
+                ',',
+                true
+            ))
+            return a
+        end, {
+            3,
         }),
-        s({ trig = 'fn', dscr = 'Documented Function Structure' }, {
-            t('def '),
-            i(1, { 'function' }),
-            t('('),
-            i(2),
-            t({ '):', '\t' }),
-            d(3, pyfdoc, { 2 }, { user_args = 1 }),
-        }),
-}
-
+        i(0),
+    }) }, {
+    s({ trig = 'fn', dscr = 'Documented Function Structure' }, {
+        t('def '),
+        i(1, { 'function' }),
+        t('('),
+        i(2),
+        t({ '):', '\t' }),
+        d(3, pyfdoc, { 2 }, { user_args = 1 }),
+    }) }
