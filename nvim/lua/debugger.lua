@@ -24,6 +24,11 @@ dapui.setup({
     },
 })
 
+local sign = vim.fn.sign_define
+sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
+sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
+
 --require("mason-nvim-dap").setup({
 --	ensure_installed = { "pyright", "delve", "gopls" },
 --})
@@ -74,7 +79,7 @@ dap.configurations.go = {
     },
 }
 
-require("dap-python").setup("~/.pyenv/versions/debugpy/bin/python")
+require("dap-python").setup("~/.local/share/nvim/mason/packages/debugpy/venv/bin/python")
 --dap.adapters.python = {
 --    type = "executable",
 --    command = vim.fn.stdpath("data") .. "/mason/bin/debugpy-adapter",

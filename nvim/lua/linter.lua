@@ -16,6 +16,8 @@ require("null-ls").setup({
     sources = {
         -- Anything not supported by mason.
     },
+    --diagnostics_format = "[#{c}] #{m} (#{s})",
+    --root_dir = require("null-ls.utils").root_pattern(".null-ls-root", "Makefile", ".luacheckrc", ".git"),
 })
 
 local lspconfig = require("lspconfig")
