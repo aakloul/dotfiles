@@ -24,4 +24,5 @@ require("hop_")
 -- TODO: archive bufferline since we have replaced it with barbar
 require("todo-comments_")
 require("colorizer")
-require('Comment').setup()
+require("Comment").setup()
+require("refactoring_")
