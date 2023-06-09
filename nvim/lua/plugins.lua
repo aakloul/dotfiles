@@ -43,7 +43,7 @@ return require("packer").startup(function(use)
             { 'saadparwaiz1/cmp_luasnip' }       -- Required by L3MON4D3/LuaSnip
         },
     })
-    use { "molleweide/LuaSnip-snippets.nvim", }         --community snippets
+    use { "molleweide/LuaSnip-snippets.nvim", } --community snippets
 
     --use 'williamboman/mason.nvim'
     --use 'williamboman/mason-lspconfig.nvim'
@@ -53,7 +53,8 @@ return require("packer").startup(function(use)
     use("jose-elias-alvarez/null-ls.nvim")
     -- Dracula theme for styling
     use("Mofiqul/dracula.nvim")
-    use("ellisonleao/gruvbox.nvim")
+    use { "catppuccin/nvim", as = "catppuccin" }
+    -- use("ellisonleao/gruvbox.nvim")
     -- Hrsh7th Code Completion Suite
     --use 'hrsh7th/nvim-cmp'
     --use 'hrsh7th/cmp-nvim-lsp'
@@ -87,6 +88,16 @@ return require("packer").startup(function(use)
         -- after = "nvim-treesitter",
         -- requires = "nvim-treesitter/nvim-treesitter",
     })
+    --
+    -- Refactoring
+    use({
+        'ThePrimeagen/refactoring.nvim',
+        requires = {
+            { "nvim-lua/plenary.nvim" },
+            { "nvim-treesitter/nvim-treesitter" }
+        }
+    })
+
     -- Telescope used to fuzzy search files
     use({
         "nvim-telescope/telescope.nvim",
