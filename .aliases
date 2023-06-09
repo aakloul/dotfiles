@@ -117,3 +117,4 @@ alias sshpico='ssh nQUsPw3MuKATVGTR9lUU@2019shell1.picoctf.com -i ~/.ssh/id_ed25
 alias rustscan='docker run -it --rm --name rustscan rustscan/rustscan:latest'
 alias crackmapexec='docker run -it --rm --name crackmapexec byt3bl33d3r/crackmapexec:latest'
 
+alias spicetify='/Users/adel.akloul/.spicetify/spicetify'

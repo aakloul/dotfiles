@@ -79,7 +79,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git macos fzf tmux vi-mode)
+plugins=(git macos fzf tmux vi-mode zsh-syntax-highlighting zsh-autosuggestions)
+# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 source $ZSH/oh-my-zsh.sh
 
@@ -163,3 +165,5 @@ export PATH="$PATH:$HOME/.rvm/bin"
 #export OUTPUT_PATH=/Users/adel.akloul/DAILY_SCRIPT_OUTPUT
 #export NODE_EXTRA_CA_CERTS=~/.zscaler/Zscaler_Root_CA.pem
 #export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_292)
+export PATH=$PATH:/Users/adel.akloul/.spicetify
+export BAT_THEME="Catppuccin-mocha"
