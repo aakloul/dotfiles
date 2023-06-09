@@ -4,6 +4,8 @@ local map = _G.vim.api.nvim_set_keymap
 -- update leader key to ,
 _G.vim.g.mapleader = " "
 
+map("i", "jk", [[<ESC>]], {})
+
 -- nvim-tree keymappings
 -- map the key n to run the command :NvimTreeToggle
 -- map('n', 'n', [[:NvimTreeToggle<CR>]], {})
