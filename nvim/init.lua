@@ -4,6 +4,8 @@ require("mappings")
 require("plugins") --must be before other plugins
 require("linter")  -- must be before lsp
 require("file-explorer")
+require("oil").setup()
+vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
 require("syntax-highlight")
 require("statusbar")
 require("fuzzy-finder")

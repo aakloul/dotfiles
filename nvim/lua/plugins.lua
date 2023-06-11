@@ -67,6 +67,9 @@ return require("packer").startup(function(use)
     -- File explorer tree
     use("nvim-tree/nvim-web-devicons") -- optional, for file icons
     use({ "nvim-tree/nvim-tree.lua", requires = { "nvim-tree/nvim-web-devicons" } })
+    use { 'stevearc/oil.nvim',
+        config = function() require('oil').setup() end
+    }
     -- DAP for debugging
     use("mfussenegger/nvim-dap")
     use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
