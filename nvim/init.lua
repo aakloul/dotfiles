@@ -5,7 +5,7 @@ require("plugins") --must be before other plugins
 require("linter")  -- must be before lsp
 require("file-explorer")
 require("oil").setup()
-vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
+_G.vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
 require("syntax-highlight")
 require("statusbar")
 require("fuzzy-finder")
@@ -18,12 +18,12 @@ require("git")
 require("terminal")
 require("autopairs")
 require("whichkey")
-require("styling") --must be before buffer
+require("styling") --must be before bufferline
+-- TODO: archive bufferline since we have replaced it with barbar
 --require("bufferline_")  -- must be after styling
 require("barbar_")
 require("hoverdoc")
 require("hop_")
--- TODO: archive bufferline since we have replaced it with barbar
 require("todo-comments_")
 require("colorizer")
 require("Comment").setup()
