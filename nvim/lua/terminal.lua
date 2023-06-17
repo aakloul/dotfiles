@@ -86,7 +86,27 @@ function _G.ncdu_toggle()
     ncdu:toggle()
 end
 
-_G.vim.api.nvim_set_keymap("n", "<leader>lg", "<cmd>lua lazygit_toggle()<CR>", { noremap = true, silent = true })
-_G.vim.api.nvim_set_keymap("n", "<leader>h", "<cmd>lua htop_toggle()<CR>", { noremap = true, silent = true })
-_G.vim.api.nvim_set_keymap("n", "<leader>p", "<cmd>lua python_toggle()<CR>", { noremap = true, silent = true })
-_G.vim.api.nvim_set_keymap("n", "<leader>nc", "<cmd>lua _NCDU_TOGGLE()<CR>", { noremap = true, silent = true })
+_G.vim.api.nvim_set_keymap(
+    "n",
+    "<leader>lg",
+    "<cmd>lua lazygit_toggle()<CR>",
+    { noremap = true, silent = true }
+)
+_G.vim.api.nvim_set_keymap(
+    "n",
+    "<leader>h",
+    "<cmd>lua htop_toggle()<CR>",
+    { noremap = true, silent = true }
+)
+_G.vim.api.nvim_set_keymap(
+    "n",
+    "<leader>p",
+    "<cmd>lua python_toggle()<CR>",
+    { noremap = true, silent = true }
+)
+_G.vim.api.nvim_set_keymap(
+    "n",
+    "<leader>nc",
+    "<cmd>lua _NCDU_TOGGLE()<CR>",
+    { noremap = true, silent = true }
+)

@@ -14,7 +14,7 @@ cmp.setup({
         -- REQUIRED - you must specify a snippet engine
         expand = function(args)
             --_G.vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-            require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+            require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
             -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
             -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
         end,
@@ -24,15 +24,15 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert({
         ["<S-Tab>"] = cmp.mapping.select_prev_item(), -- Shift+TAB to go to the Previous Suggested item
         ["<Tab>"] = cmp.mapping.select_next_item(),   -- Tab to go to the next suggestion
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),      --scroll backward
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),       --scroll  forward
-        ['<C-Space>'] = cmp.mapping.complete(),       --bring up completion at current Cursor location
-        ['<C-e>'] = cmp.mapping.abort(),              -- CTRL+e to exit suggestion and close it
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),      --scroll backward
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),       --scroll  forward
+        ["<C-Space>"] = cmp.mapping.complete(),       --bring up completion at current Cursor location
+        ["<C-e>"] = cmp.mapping.abort(),              -- CTRL+e to exit suggestion and close it
         -- CR (enter or return) to CONFIRM the currently selection suggestion
         -- We set the ConfirmBehavior to insert the Selected suggestion
-        ['<CR>'] = cmp.mapping.confirm({
+        ["<CR>"] = cmp.mapping.confirm({
             -- behavior = cmp.ConfirmBehavior.Insert,
-            select = true --`false` to only confirm explicitly selected items.
+            select = true, --`false` to only confirm explicitly selected items.
         }),
     }),
 
@@ -40,18 +40,18 @@ cmp.setup({
     -- -- installed sources that can be used for code suggestions
     sources = cmp.config.sources(
         {
-            { name = 'nvim_lsp' },
+            { name = "nvim_lsp" },
             -- { name = 'vsnip' }, -- For vsnip users.
-            { name = 'luasnip',                option = { show_autosnippets = true } }, -- For luasnip users.
+            { name = "luasnip",                option = { show_autosnippets = true } }, -- For luasnip users.
             -- { name = 'ultisnips' }, -- For ultisnips users.
             -- { name = 'snippy' }, -- For snippy users.
-            { name = 'nvim_lsp_signature_help' },
-            { name = 'buffer' },
-            { name = 'path' }
+            { name = "nvim_lsp_signature_help" },
+            { name = "buffer" },
+            { name = "path" },
         },
-        { { name = 'buffer' }, },
+        { { name = "buffer" } },
         -- { { name = 'nvim_lsp_signature_help' }, },
-        { { name = 'path' }, }
+        { { name = "path" } }
     ),
 
     --

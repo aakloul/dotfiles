@@ -24,9 +24,12 @@ dapui.setup({
     },
 })
 
-local sign = vim.fn.sign_define
+local sign = _G.vim.fn.sign_define
 sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
-sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
+sign(
+    "DapBreakpointCondition",
+    { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" }
+)
 sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
 
 --require("mason-nvim-dap").setup({

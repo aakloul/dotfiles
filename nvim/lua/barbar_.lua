@@ -1,6 +1,6 @@
 _G.vim.g.barbar_auto_setup = false -- disable auto-setup
 
-require 'barbar'.setup {
+require("barbar").setup({
     -- WARN: do not copy everything below into your config!
     --       It is just an example of what configuration options there are.
     --       The defaults are suitable for most people.
@@ -25,7 +25,7 @@ require 'barbar'.setup {
 
     -- A buffer to this direction will be focused (if it exists) when closing the current buffer.
     -- Valid options are 'left' (the default), 'previous', and 'right'
-    focus_on_close = 'left',
+    focus_on_close = "left",
 
     -- Hide inactive buffers and file extensions. Other options are `alternate`, `current`, and `visible`.
     --hide = { extensions = true, inactive = true },
@@ -44,18 +44,18 @@ require 'barbar'.setup {
         -- Valid options to display the buffer index and -number are `true`, 'superscript' and 'subscript'
         buffer_index = false,
         buffer_number = false,
-        button = '✖',
+        button = "✖",
         -- Enables / disables diagnostic symbols
         diagnostics = {
-            [_G.vim.diagnostic.severity.ERROR] = { enabled = true, icon = '' },
-            [_G.vim.diagnostic.severity.WARN] = { enabled = true, icon = '' },
+            [_G.vim.diagnostic.severity.ERROR] = { enabled = true, icon = "" },
+            [_G.vim.diagnostic.severity.WARN] = { enabled = true, icon = "" },
             [_G.vim.diagnostic.severity.INFO] = { enabled = false },
             [_G.vim.diagnostic.severity.HINT] = { enabled = true },
         },
         gitsigns = {
-            added = { enabled = true, icon = '+' },
-            changed = { enabled = true, icon = '~' },
-            deleted = { enabled = true, icon = '-' },
+            added = { enabled = true, icon = "+" },
+            changed = { enabled = true, icon = "~" },
+            deleted = { enabled = true, icon = "-" },
         },
         filetype = {
             -- Sets the icon's highlight group.
@@ -65,21 +65,21 @@ require 'barbar'.setup {
             -- Requires `n_G.vim-web-devicons` if `true`
             enabled = true,
         },
-        separator = { left = '▎', right = '' },
+        separator = { left = "▎", right = "" },
 
         -- Configure the icons on the bufferline when modified or pinned.
         -- Supports all the base icon options.
-        modified = { button = '●' },
-        pinned = { button = '', filename = true },
+        modified = { button = "●" },
+        pinned = { button = "", filename = true },
 
         -- Use a preconfigured buffer appearance— can be 'default', 'powerline', or 'slanted'
-        preset = 'default',
+        preset = "default",
 
         -- Configure the icons on the bufferline based on the visibility of a buffer.
         -- Supports all the base icon options, plus `modified` and `pinned`.
         alternate = { filetype = { enabled = false } },
         current = { buffer_index = true },
-        inactive = { button = '×' },
+        inactive = { button = "×" },
         visible = { modified = { buffer_number = false } },
     },
 
@@ -121,9 +121,9 @@ require 'barbar'.setup {
     -- New buffer letters are assigned in this order. This order is
     -- optimal for the qwerty keyboard layout but might need adjustment
     -- for other layouts.
-    letters = 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP',
+    letters = "asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP",
 
     -- Sets the name of unnamed buffers. By default format is "[Buffer X]"
     -- where X is the buffer number. But only a static string is accepted here.
     no_name_title = nil,
-}
+})

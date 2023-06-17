@@ -8,30 +8,34 @@ local r = require("luasnip.extras").rep
 
 return {
     s("print_str", {
-        t("print(\""),
+        t('print("'),
         i(1, "desrc"),
-        t("\")"),
-    }) }, {
+        t('")'),
+    }),
+}, {
     s("print_var1", {
-        t("print(\""),
+        t('print("'),
         i(1, "desrc"),
-        t(": \" .. "),
+        t(': " .. '),
         i(2, "the_variable"),
         t(")"),
-    }) }, {
+    }),
+}, {
     s("print_var2", {
-        t("print(\""),
+        t('print("'),
         i(1, "the_variable"),
-        t(": \" .. "),
+        t(': " .. '),
         r(1),
         t(")"),
-    }) }, {
+    }),
+}, {
     s("print_var3", {
-        t("print(\""),
+        t('print("'),
         i(1, "desrc"),
         t(" | "),
         i(2, "the_variable"),
-        t(" : \" .. "),
+        t(' : " .. '),
         r(2),
         t(")"),
-    }) }
+    }),
+}

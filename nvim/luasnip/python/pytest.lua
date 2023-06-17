@@ -69,7 +69,7 @@ return {
     }),
     s("capsys", t("stdout = capsys.readouterr().out")),
     s(
-        "setuptools",
+        "setup.py",
         fmt(
             [[
         import setuptools

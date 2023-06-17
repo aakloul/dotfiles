@@ -1,6 +1,6 @@
 require("nvim-treesitter.configs").setup({
     -- A list of parser names, or "all"
-    ensure_installed = { "go", "lua", "python", "markdown", "markdown_inline" },
+    ensure_installed = { "go", "lua", "python", "markdown", "markdown_inline", "regex" },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
@@ -15,11 +15,11 @@ require("nvim-treesitter.configs").setup({
     },
 })
 
-require 'nvim-treesitter.configs'.setup({
+require("nvim-treesitter.configs").setup({
     textobjects = {
         lsp_interop = {
             enable = true,
-            border = 'none',
+            border = "none",
             floating_preview_opts = {},
             peek_definition_code = {
                 ["<leader>df"] = "@function.outer",
@@ -41,7 +41,11 @@ require 'nvim-treesitter.configs'.setup({
                 -- nvim_buf_set_keymap) which plugins like which-key display
                 ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
                 -- You can also use captures from other query groups like `locals.scm`
-                ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+                ["as"] = {
+                    query = "@scope",
+                    query_group = "locals",
+                    desc = "Select language scope",
+                },
             },
             -- You can choose the select mode (default is charwise 'v')
             --
@@ -51,9 +55,9 @@ require 'nvim-treesitter.configs'.setup({
             -- and should return the mode ('v', 'V', or '<c-v>') or a table
             -- mapping query_strings to modes.
             selection_modes = {
-                ['@parameter.outer'] = 'v', -- charwise
-                ['@function.outer'] = 'V',  -- linewise
-                ['@class.outer'] = '<c-v>', -- blockwise
+                ["@parameter.outer"] = "v", -- charwise
+                ["@function.outer"] = "V",  -- linewise
+                ["@class.outer"] = "<c-v>", -- blockwise
             },
             -- If you set this to `true` (default is `false`) then any textobject is
             -- extended to include preceding or succeeding whitespace. Succeeding
@@ -115,12 +119,12 @@ require 'nvim-treesitter.configs'.setup({
             },
             goto_previous = {
                 ["[d"] = "@conditional.outer",
-            }
+            },
         },
     },
 })
 
-local ts_repeat_move = require "nvim-treesitter.textobjects.repeatable_move"
+local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
 
 -- Repeat movement with ; and ,
 -- ensure ; goes forward and , goes backward regardless of the last direction

@@ -28,6 +28,6 @@ _G.vim.opt.smartcase = true  -- but make it case sensitive if an uppercase is en
 _G.vim.opt_local.include = [[\v<((do|load)file|require)[^''"]*[''"]\zs[^''"]+]]
 _G.vim.opt_local.includeexpr = "substitute(v:fname,'\\.','/','g')"
 for _, path in pairs(_G.vim.api.nvim_list_runtime_paths()) do
-    _G.vim.opt_local.path:append(path .. '/lua')
+    _G.vim.opt_local.path:append(path .. "/lua")
 end
-_G.vim.opt_local.suffixesadd:prepend('.lua')
+_G.vim.opt_local.suffixesadd:prepend(".lua")

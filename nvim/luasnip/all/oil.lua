@@ -29,14 +29,15 @@ return {
         "py_new_project",
         fmt(
             [[
-        src/{a}__init__.py
-        src/{a}{b}.py
-        tests/test_{b}.py
-        README.md
-        pyproject.toml
-        setup.py
-        doc/
-    ]],
+                src/{a}__init__.py
+                src/{a}{b}.py
+                tests/test_{b}.py
+                README.md
+                pyproject.toml
+                setup.py
+                requirements.txt
+                doc/
+            ]],
             {
                 a = c(1, { t("package/"), t("") }),
                 b = i(2, "filename"),
@@ -48,9 +49,9 @@ return {
         "py_new_pytest",
         fmt(
             [[
-        src/{a}{b}.py
-        tests/test_{b}.py
-    ]],
+                src/{a}{b}.py
+                tests/test_{b}.py
+            ]],
             {
                 a = c(1, { t("package/"), t("") }),
                 b = i(2, "filename"),

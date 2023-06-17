@@ -2,7 +2,14 @@ local ensure_packer = function()
     local fn = _G.vim.fn
     local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
     if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+        fn.system({
+            "git",
+            "clone",
+            "--depth",
+            "1",
+            "https://github.com/wbthomason/packer.nvim",
+            install_path,
+        })
         _G.vim.cmd([[packadd packer.nvim]])
         return true
     end
@@ -38,12 +45,12 @@ return require("packer").startup(function(use)
                 run = "make install_jsregexp", -- install jsregexp (optional!:).
                 -- Replace <CurrentMajor> by the latest released major (first number of latest release)
                 -- tag = "v<CurrentMajor>.*",
-            },                                   -- Required
-            { "rafamadriz/friendly-snippets", }, -- for VSCode snippets via LuaSnip
-            { 'saadparwaiz1/cmp_luasnip' }       -- Required by L3MON4D3/LuaSnip
+            },                                  -- Required
+            { "rafamadriz/friendly-snippets" }, -- for VSCode snippets via LuaSnip
+            { "saadparwaiz1/cmp_luasnip" },     -- Required by L3MON4D3/LuaSnip
         },
     })
-    use { "molleweide/LuaSnip-snippets.nvim", } --community snippets
+    use({ "molleweide/LuaSnip-snippets.nvim" }) --community snippets
 
     --use 'williamboman/mason.nvim'
     --use 'williamboman/mason-lspconfig.nvim'
@@ -53,7 +60,7 @@ return require("packer").startup(function(use)
     use("jose-elias-alvarez/null-ls.nvim")
     -- Dracula theme for styling
     use("Mofiqul/dracula.nvim")
-    use { "catppuccin/nvim", as = "catppuccin" }
+    use({ "catppuccin/nvim", as = "catppuccin" })
     -- use("ellisonleao/gruvbox.nvim")
     -- Hrsh7th Code Completion Suite
     --use 'hrsh7th/nvim-cmp'
@@ -67,9 +74,12 @@ return require("packer").startup(function(use)
     -- File explorer tree
     use("nvim-tree/nvim-web-devicons") -- optional, for file icons
     use({ "nvim-tree/nvim-tree.lua", requires = { "nvim-tree/nvim-web-devicons" } })
-    use { 'stevearc/oil.nvim',
-        config = function() require('oil').setup() end
-    }
+    use({
+        "stevearc/oil.nvim",
+        config = function()
+            require("oil").setup()
+        end,
+    })
     -- DAP for debugging
     use("mfussenegger/nvim-dap")
     use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
@@ -94,11 +104,11 @@ return require("packer").startup(function(use)
     --
     -- Refactoring
     use({
-        'ThePrimeagen/refactoring.nvim',
+        "ThePrimeagen/refactoring.nvim",
         requires = {
             { "nvim-lua/plenary.nvim" },
-            { "nvim-treesitter/nvim-treesitter" }
-        }
+            { "nvim-treesitter/nvim-treesitter" },
+        },
     })
 
     -- Telescope used to fuzzy search files
@@ -189,9 +199,31 @@ return require("packer").startup(function(use)
     --    -- setup = function() vim.g.Hexokinase_highlighters = { 'backgroundfull' } end
     --} -- golang installation is required
 
-    use { "https://git.sr.ht/~whynothugo/lsp_lines.nvim", config = function() require("lsp_lines").setup() end, }
+    use({
+        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        config = function()
+            require("lsp_lines").setup()
+        end,
+    })
 
-    use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
+    use({
+        "numToStr/Comment.nvim",
+        config = function()
+            require("Comment").setup()
+        end,
+    })
+
+    use({
+        "folke/noice.nvim",
+        requires = {
+            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+            "MunifTanjim/nui.nvim",
+            -- OPTIONAL:
+            --   `nvim-notify` is only needed, if you want to use the notification view.
+            --   If not available, we use `mini` as the fallback
+            "rcarriga/nvim-notify",
+        },
+    })
 
     if packer_bootstrap then
         require("packer").sync()
