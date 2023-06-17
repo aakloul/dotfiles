@@ -118,3 +118,12 @@ alias rustscan='docker run -it --rm --name rustscan rustscan/rustscan:latest'
 alias crackmapexec='docker run -it --rm --name crackmapexec byt3bl33d3r/crackmapexec:latest'
 
 alias spicetify='/Users/adel.akloul/.spicetify/spicetify'
+
+function weather {
+    if [ -z "$1" ]
+    then
+        curl wttr.in
+    else
+        curl wttr.in/$1
+    fi
+}
