@@ -117,6 +117,7 @@ export ARCHFLAGS="-arch x86_64"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+[[ ! -f ~/.aliases ]] || source ~/.aliases
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -167,3 +168,4 @@ export PATH="$PATH:$HOME/.rvm/bin"
 #export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_292)
 export PATH=$PATH:/Users/adel.akloul/.spicetify
 export BAT_THEME="Catppuccin-mocha"
+export PATH="/usr/local/opt/libpcap/bin:$PATH"

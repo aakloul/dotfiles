@@ -127,3 +127,11 @@ function weather {
         curl wttr.in/$1
     fi
 }
+
+function ndiff {
+    for files in $(diff -rq $1 $2|grep 'differ$'|sed "s/^Files //g;s/ differ$//g;s/ and /:/g"); do 
+        vimdiff ${files%:*} ${files#*:}; 
+    done
+}
+
+alias v='nvim'
