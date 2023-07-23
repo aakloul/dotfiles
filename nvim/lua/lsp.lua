@@ -17,6 +17,7 @@ lsp.ensure_installed({
     "pyright",
     "gopls",
     "lua_ls",
+    "terraformls",
     "rust_analyzer",
 })
 
@@ -28,6 +29,7 @@ lsp.format_on_save({
     },
     servers = {
         ["lua_ls"] = { "lua" },
+        ["terraformls"] = { "terraform" },
         ["rust_analyzer"] = { "rust" },
     },
 })

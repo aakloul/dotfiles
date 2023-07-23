@@ -26,6 +26,8 @@ ls.filetype_extend("lua", { "c" })
 ls.filetype_set("cpp", { "c" })
 ls.filetype_extend("all", { "_" })
 
+ls.filetype_set("tf", { "c" })
+
 local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node

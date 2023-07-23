@@ -8,6 +8,7 @@ require("mason-null-ls").setup({
         "black",
         "luacheck",
         "debugpy",
+        "tflint",
     },
     automatic_installation = true,
     handlers = {},
