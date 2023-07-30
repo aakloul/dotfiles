@@ -3,3 +3,4 @@ autoload
 .DS_Store
 nvim/plugin/packer_compiled.lua
 nvim/.luarc.json
+nvim/packer.nvim
